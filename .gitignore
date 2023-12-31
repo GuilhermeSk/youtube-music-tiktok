@@ -86,3 +86,12 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# JetBrains IDEs
+.idea/
+
+# macOS
+.DS_Store
+
+# Project specific
+user-data
