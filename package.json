@@ -11,7 +11,7 @@
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "prepare": "husky install",
-    "lint-format-test": "npm run lint && npm run format && npm run test"
+    "format-lint-test": "npm run format && npm run lint && npm run test"
   },
   "keywords": [
     "youtube-music",
