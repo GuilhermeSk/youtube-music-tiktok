@@ -1,4 +1,4 @@
-import { MUSIC_ADDED } from '../../src/utils/eventConstants'
+import { MUSIC_ADDED } from '../../src/utils/configs'
 import QueueWithEvent from '../../src/utils/queueWithEvent'
 import EventManager from '../../src/utils/eventManager'
 
