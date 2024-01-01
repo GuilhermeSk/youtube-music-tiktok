@@ -1,8 +1,8 @@
-import { MUSIC_ADDED } from '../../src/utils/configs'
+import { EventType } from '../../src/utils/configs'
 import QueueWithEvent from '../../src/utils/queueWithEvent'
 import EventManager from '../../src/utils/eventManager'
 
-const queue = new QueueWithEvent<string>(MUSIC_ADDED)
+const queue = new QueueWithEvent<string>(EventType.MUSIC_ADDED)
 
 describe('QueueWithEvent', () => {
   beforeEach(() => {
@@ -10,13 +10,13 @@ describe('QueueWithEvent', () => {
   })
   it('should emit the MUSIC_ADDED', () => {
     const mockListener = jest.fn()
-    EventManager.getInstance().on(MUSIC_ADDED, mockListener)
+    EventManager.getInstance().on(EventType.MUSIC_ADDED, mockListener)
     queue.enqueue('Hello')
     queue.enqueue('World')
     expect(mockListener).toHaveBeenCalledTimes(2)
   })
   it('should add and get items from queue correctly', () => {
-    const queue = new QueueWithEvent<string>(MUSIC_ADDED)
+    const queue = new QueueWithEvent<string>(EventType.MUSIC_ADDED)
     const value1: string = 'Hello'
     const value2: string = 'Hello'
     expect(queue.dequeue()).toBeNull()

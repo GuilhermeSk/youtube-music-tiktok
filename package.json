@@ -24,7 +24,8 @@
     "dotenv": "^16.3.1",
     "puppeteer": "^21.6.1",
     "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2"
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "tiktok-live-connector": "^1.0.5"
   },
   "devDependencies": {
     "@types/jest": "^29.5.11",
