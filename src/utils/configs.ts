@@ -1,13 +1,12 @@
 import 'dotenv/config'
-import readline from 'readline'
 import fs from 'fs'
 import path from 'path'
+import { isTrue, promptForInput } from './utils'
 
 // 20 minutes between the same music requests
 let TIME_BETWEEN_SAME_MUSIC_REQUESTS = 20 * 60 * 1000
 
 let TIKTOK_LIVE_CREATOR_USER = process.env.TIKTOK_LIVE_CREATOR_USER
-const trueRegex = /^true$/i
 let DEBUG: boolean = isTrue(process.env.DEBUG)
 
 export function getTikTokLiveCreatorUser(): string {
@@ -20,11 +19,6 @@ export function getTimeBetweenSameMusicRequests(): number {
 
 export function isDebug(): boolean {
   return DEBUG
-}
-
-export function isTrue(value: string | null | undefined): boolean {
-  if (!value) return false
-  return trueRegex.test(value)
 }
 
 export const EventType = {
@@ -54,20 +48,6 @@ export function getCommandType(command: string): CommandType {
     default:
       return CommandType.INVALID
   }
-}
-
-function promptForInput(question: string): Promise<string> {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  })
-
-  return new Promise<string>(resolve => {
-    rl.question(question, userInput => {
-      rl.close()
-      resolve(userInput)
-    })
-  })
 }
 
 export async function configure() {
