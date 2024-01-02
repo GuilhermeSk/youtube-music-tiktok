@@ -1,4 +1,6 @@
-# YouTube Music for TikTok Live Creators
+# YouTube-Music-TikTok
+    
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **YouTube Music TikTok** is an open-source project designed to empower TikTok Live creators and their audiences by 
 enabling song requests through YouTube Music. This project leverages a Chrome browser instance to seamlessly integrate 
@@ -65,3 +67,21 @@ Within the `.env` file, you have the flexibility to customize the following vari
 
 Feel free to reach out if you have any questions or need further assistance with this project. We're here to help you 
 make the most of YouTube Music for TikTok Live!
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [tiktok-live-connector](https://www.npmjs.com/package/tiktok-live-connector)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [puppeteer](https://www.npmjs.com/package/puppeteer)
+- [puppeteer-extra](https://www.npmjs.com/package/puppeteer-extra)
+- [puppeteer-extra-plugin-stealth](https://www.npmjs.com/package/puppeteer-extra-plugin-stealth)
+- [TikTok](https://www.tiktok.com/)
+- [YouTube Music](https://music.youtube.com/)
+- [jest](https://www.npmjs.com/package/jest)
+- [nodemon](https://www.npmjs.com/package/nodemon)
+- [prettier](https://www.npmjs.com/package/prettier)
+- [eslint](https://www.npmjs.com/package/eslint)
