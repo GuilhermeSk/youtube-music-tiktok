@@ -1,5 +1,5 @@
 import UserRequestService from './userRequestService'
-import { CommandType, getCommandType } from '../utils/configs'
+import { CommandType, getCommandType, isDebug } from '../utils/configs'
 import YoutubeMusicBrowserController from '../youtubeMusicBrowserController'
 
 const regexPattern = /^!\s*(play)\s+(.+)|skip|pause|resume$/i
@@ -16,7 +16,9 @@ export default class ChatListener {
       comment: string
       isModerator: boolean
     }) => {
-      console.log(`${data.uniqueId}: '${data.comment}'`)
+      if (isDebug()) {
+        console.log(`${data.uniqueId}: '${data.comment}'`)
+      }
       if (!data.comment) return
       let match = data.comment.match(regexPattern)
       if (match) {

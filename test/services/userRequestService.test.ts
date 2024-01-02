@@ -1,7 +1,7 @@
 import UserRequestService from '../../src/services/userRequestService'
 import {
   EventType,
-  TIME_BETWEEN_SAME_MUSIC_REQUESTS
+  getTimeBetweenSameMusicRequests
 } from '../../src/utils/configs'
 import QueueWithEvent from '../../src/utils/queueWithEvent'
 
@@ -28,7 +28,7 @@ describe('userRequestService', () => {
     )
     jest
       .spyOn(global.Date, 'now')
-      .mockReturnValue(fixedTimestamp + TIME_BETWEEN_SAME_MUSIC_REQUESTS)
+      .mockReturnValue(fixedTimestamp + getTimeBetweenSameMusicRequests())
     expect(userRequestService.requestMusic(defaultUser, defaultMusic)).toBe(
       true
     )
@@ -40,7 +40,7 @@ describe('userRequestService', () => {
     )
     jest
       .spyOn(global.Date, 'now')
-      .mockReturnValue(fixedTimestamp + TIME_BETWEEN_SAME_MUSIC_REQUESTS - 1)
+      .mockReturnValue(fixedTimestamp + getTimeBetweenSameMusicRequests() - 1)
     expect(userRequestService.requestMusic(defaultUser, defaultMusic)).toBe(
       false
     )

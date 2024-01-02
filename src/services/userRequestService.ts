@@ -1,8 +1,9 @@
 import QueueWithEvent from '../utils/queueWithEvent'
-import { TIME_BETWEEN_SAME_MUSIC_REQUESTS } from '../utils/configs'
+import { getTimeBetweenSameMusicRequests } from '../utils/configs'
 
 const blockedUsers: Set<string> = new Set()
 const userToMusicRequestMap: Map<string, Map<string, MusicRequest>> = new Map()
+const TIME_BETWEEN_SAME_MUSIC_REQUESTS = getTimeBetweenSameMusicRequests()
 
 class MusicRequest {
   timestamp: number = Date.now()

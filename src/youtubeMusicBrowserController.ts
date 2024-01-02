@@ -2,7 +2,7 @@ import { Page } from 'puppeteer'
 import puppeteer from 'puppeteer-extra'
 import StealthPlugin from 'puppeteer-extra-plugin-stealth'
 import { sleep } from './utils/utils'
-import { TIKTOK_LIVE_CREATOR_USER } from './utils/configs'
+import { getTikTokLiveCreatorUser } from './utils/configs'
 
 puppeteer.use(StealthPlugin())
 
@@ -72,7 +72,7 @@ export default class YoutubeMusicBrowserController {
 
   async skip(uniqueId: string, isModerator: boolean) {
     try {
-      if (TIKTOK_LIVE_CREATOR_USER === uniqueId || isModerator) {
+      if (getTikTokLiveCreatorUser() === uniqueId || isModerator) {
         if (await this.isPlayingMusic()) {
           console.log('Skip song')
           this.page?.keyboard.press('j')
@@ -85,7 +85,7 @@ export default class YoutubeMusicBrowserController {
 
   async pause(uniqueId: string, isModerator: boolean) {
     try {
-      if (TIKTOK_LIVE_CREATOR_USER === uniqueId || isModerator) {
+      if (getTikTokLiveCreatorUser() === uniqueId || isModerator) {
         if (await this.isPlayingMusic()) {
           console.log('Pause song')
           this.page?.keyboard.press('Space')
@@ -98,7 +98,7 @@ export default class YoutubeMusicBrowserController {
 
   async resume(uniqueId: string, isModerator: boolean) {
     try {
-      if (TIKTOK_LIVE_CREATOR_USER === uniqueId || isModerator) {
+      if (getTikTokLiveCreatorUser() === uniqueId || isModerator) {
         if (!(await this.isPlayingMusic())) {
           console.log('Resume song')
           this.page?.keyboard.press('Space')
