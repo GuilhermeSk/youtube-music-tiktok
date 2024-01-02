@@ -9,6 +9,11 @@ let TIME_BETWEEN_SAME_MUSIC_REQUESTS = 20 * 60 * 1000
 let TIKTOK_LIVE_CREATOR_USER = process.env.TIKTOK_LIVE_CREATOR_USER
 let DEBUG: boolean = isTrue(process.env.DEBUG)
 
+let envContent = `
+SONG_ADDED_TEXT=Song added to queue
+DEBUG=true
+`
+
 export function getTikTokLiveCreatorUser(): string {
   return TIKTOK_LIVE_CREATOR_USER || ''
 }
@@ -58,7 +63,7 @@ export async function configure() {
     )
     DEBUG = true
 
-    const envContent = `TIKTOK_LIVE_CREATOR_USER=${TIKTOK_LIVE_CREATOR_USER}\nDEBUG=true`
+    envContent += `\nTIKTOK_LIVE_CREATOR_USER=${TIKTOK_LIVE_CREATOR_USER}`
 
     // save to .env file
     const envPath = path.join(__dirname, '../../.env')
