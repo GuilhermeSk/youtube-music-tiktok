@@ -9,9 +9,9 @@ let TIME_BETWEEN_SAME_MUSIC_REQUESTS = 20 * 60 * 1000
 let TIKTOK_LIVE_CREATOR_USER = process.env.TIKTOK_LIVE_CREATOR_USER
 let DEBUG: boolean = isTrue(process.env.DEBUG)
 
-let envContent = `
-SONG_ADDED_TEXT=Song added to queue
+let envContent = `SONG_ADDED_TEXT=Song added to queue
 DEBUG=true
+TEST_ENV=false
 `
 
 export function getTikTokLiveCreatorUser(): string {

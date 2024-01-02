@@ -66,7 +66,7 @@ export default class YoutubeMusicBrowserController {
 
       await this.page.waitForNavigation()
 
-      await this.addToQueue()
+      await this.addToQueue(music)
     } catch (error) {
       console.error(error)
     }
@@ -111,13 +111,13 @@ export default class YoutubeMusicBrowserController {
     }
   }
 
-  private async addToQueue() {
+  private async addToQueue(music: string) {
     if (!this.page) {
       console.error('Page is not initialized')
       return
     }
     try {
-      await this.page.mouse.click(500, 230, { button: 'right' })
+      await this.page.mouse.click(800, 230, { button: 'right' })
 
       await sleep(1000)
 
@@ -127,8 +127,35 @@ export default class YoutubeMusicBrowserController {
           document.querySelector('tp-yt-paper-listbox').childNodes[4].click()
         } catch (e) {}
       })
+
+      await this.checkIfMusicWasAdded(music)
     } catch (error) {
       console.error(error)
+    }
+  }
+
+  private async checkIfMusicWasAdded(music: string, timeout = 5000) {
+    if (!this.page) {
+      console.error('Page is not initialized')
+      return
+    }
+    try {
+      await Promise.race([
+        this.page.waitForFunction(
+          // @ts-ignore
+          text => document.body.innerText.includes(text),
+          {},
+          'Song added to queue'
+        ),
+        new Promise((_, reject) =>
+          setTimeout(
+            () => reject(new Error('Timeout: Text not found')),
+            timeout
+          )
+        )
+      ])
+    } catch (error) {
+      console.log(`Music not added: ${music}`)
     }
   }
 
