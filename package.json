@@ -10,6 +10,7 @@
     "start": "npm run build && node ./build/index.js",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "format-current-file": "prettier --ignore-path .gitignore --write ",
     "prepare": "husky install",
     "format-lint-test": "npm run format && npm run lint && npm run test"
   },

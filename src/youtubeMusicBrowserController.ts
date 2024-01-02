@@ -14,7 +14,9 @@ export default class YoutubeMusicBrowserController {
     const browser = await puppeteer.launch({
       headless: false,
       userDataDir: './user-data',
-      ignoreDefaultArgs: ['--hide-scrollbars']
+      args: ['--start-maximized'],
+      ignoreDefaultArgs: ['--hide-scrollbars'],
+      defaultViewport: null
     })
     this.page = await browser.newPage()
 
